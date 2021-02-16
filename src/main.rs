@@ -57,4 +57,9 @@ fn print_fn(){
         5
     }
     println!("five() 的值为: {}", five());
+
+    fn add(a: i32, b: i32) -> i32 {
+        return a + b;
+    }
+    println!("add() 的值为: {}", add(12,78));
 }
