@@ -8,6 +8,10 @@ fn main() {
     another_function(5, 6);
 
     print_fn();
+
+    fn_if();
+
+    fn_for();
 }
 
 // pre_install 输出
@@ -62,4 +66,72 @@ fn print_fn(){
         return a + b;
     }
     println!("add() 的值为: {}", add(12,78));
+}
+
+// fn_if 条件
+fn fn_if(){
+    println!("if 条件-------------");
+    let number = 3;
+    if number < 5 {
+        println!("条件为 true {}",number);
+    } else {
+        println!("条件为 false {}",number);
+    }
+
+    // else if 
+    let a = 12;
+    let b;
+    if a > 0 {
+        b = 1;
+    } else if a < 0 {
+        b = -1;
+    } else {
+        b = 0;
+    }
+    println!("b is {}", b);
+
+    // 参数 if 结果为参数 (shadowing)
+    let number = if b > 0 { 1 } else { -1 };
+    println!("number 为 {}", number);
+}
+
+fn fn_for(){
+    println!("for 循环-------------");
+    let mut number = 1;
+    while number != 4 {
+        println!("{}", number);
+        number += 1;
+    }
+    println!("EXIT");
+
+    // 迭代器
+    let a = [10, 20, 30, 40, 50];
+    for i in a.iter() {
+        println!("值为 : {}", i);
+    }
+    // 下标来访问数组
+    for i in 0..5 {
+        println!("a[{}] = {}", i, a[i]);
+    }
+
+    // loop
+    let s = ['B', 'U', 'G', 'U', 'A', 'I'];
+    let mut i = 0;
+    loop {
+        let ch = s[i];
+        if ch == 'A' {
+            break;
+        }
+        println!("\'{}\'", ch);
+        i += 1;
+    }
+
+    let location = loop {
+        let ch = s[i];
+        if ch == 'I' {
+            break i;
+        }
+        i += 1;
+    };
+    println!("\'I\' 的索引为 {}", location);
 }
